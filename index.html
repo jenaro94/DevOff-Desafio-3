@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Off!</title>
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: sans-serif;
+        overflow: hidden;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .controls {
+        display: flex;
+        min-height: 50px;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 2rem;
+        background-color: #fafafa;
+        border-bottom: 2px solid;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(0);
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .controls > * {
+        margin-right: 1rem;
+      }
+
+      .controls button {
+        border: 1px solid;
+        padding: 0.5rem 1rem;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background-color: #ffffff;
+      }
+    </style>
+    <div class="controls">
+      <input type="color" name="strokeColor" value="#000000" />
+      <input type="range" min="10" max="100" name="strokeWidth" value="10" />
+      <button id="save">
+        Save as image! 🌃
+      </button>
+      <button id="eraser">
+        Eraser
+      </button>
+      <button id="bucket">
+        Bucket
+      </button>
+    </div>
+    <canvas width="500" height="500"></canvas>
+    <script src="app.js"></script>
+  </body>
+</html>
