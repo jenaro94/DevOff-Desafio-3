@@ -5,8 +5,10 @@ window.addEventListener("load", function () {
   const inputs = controlsContainer.querySelectorAll("input");
   const saveButton = controlsContainer.querySelector("#save");
   const eraserButton = controlsContainer.querySelector("#eraser");
+  const bucketButton = controlsContainer.querySelector("#bucket");
   const WIDTH = window.innerWidth;
   const HEIGHT = window.innerHeight;
+  let backgroundColor = "#ffffff";
 
   let drawing = false;
   canvas.width = WIDTH;
@@ -22,6 +24,7 @@ window.addEventListener("load", function () {
 
   saveButton.addEventListener("click", saveImg);
   eraserButton.addEventListener("click", setToErase);
+  bucketButton.addEventListener("click", setBackground);
 
   canvas.addEventListener("mousedown", startDrawing);
   canvas.addEventListener("mousemove", draw);
@@ -76,7 +79,7 @@ window.addEventListener("load", function () {
   }
 
   function setToErase() {
-    controls.strokeColor = "#ffffff";
+    controls.strokeColor = backgroundColor;
   }
 
   function hideHeader() {
@@ -85,5 +88,11 @@ window.addEventListener("load", function () {
 
   function showHeader() {
     controlsContainer.style.transform = "translateY(0)";
+  }
+
+  function setBackground() {
+    context.fillStyle = controls.strokeColor;
+    backgroundColor = controls.strokeColor;
+    context.fillRect(0, 0, WIDTH, HEIGHT);
   }
 });
